@@ -1,0 +1,12 @@
+1.首先github上先创建空仓库learnNote，然后本地关联并上传
+git init
+git remote add origin git@github.com:zplufb/learnNote.git
+//查看
+git remote -v
+origin  git@github.com:zplufb/learnNote.git (fetch)
+origin  git@github.com:zplufb/learnNote.git (push)
+git add 
+git commit -m ""
+git push --set-upstream git@github.com:zplufb/learnNote.git 
+
+2.
