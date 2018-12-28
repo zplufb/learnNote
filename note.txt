@@ -1,0 +1,8 @@
+linux 忘记非root的用户密码
+方法:用root账号登录
+$su root
+#输入root密码
+#passwd username
+#new password:xxx
+#confirm new password:xxx
+
