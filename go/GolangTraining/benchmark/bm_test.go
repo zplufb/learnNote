@@ -18,7 +18,7 @@ import (
 )
 
 var filename = "text.txt"
-var context = "hello world!"
+var context = "helloworld"
 
 func init() {
 	//initVar(1)
@@ -123,6 +123,18 @@ func BenchmarkFileR_Bufio(B *testing.B) {
 //BenchmarkFileR_OS-4       	  100000	     20390 ns/op
 //BenchmarkFileR_Bufio-4    	  100000	     26440 ns/op
 //PASS
+
+//len context= 1000
+////goos: windows
+////goarch: amd64
+////BenchmarkFileW_IOutil-4   	   20000	     50650 ns/op
+////BenchmarkFileW_OS-4       	     500	   3516000 ns/op
+////BenchmarkFileW_Bufio-4    	   30000	     45966 ns/op
+////BenchmarkFMT-4            	   30000	     49600 ns/op
+////BenchmarkFileR_IOutil-4   	  100000	     23570 ns/op
+////BenchmarkFileR_OS-4       	  100000	     20660 ns/op
+////BenchmarkFileR_Bufio-4    	  100000	     25180 ns/op
+////PASS
 //
 //
 ////initVar(1)
