@@ -71,24 +71,24 @@ func CollectLinks(urlIndex string) (hrefMap map[string][]string) {
 		hrefArr := make([]string, len_hrefArr)
 
 		for i, v := range contentArr {
-			content := commonUtils.ConvertToString(v, "gbk", "utf-8")
+			content := ConvertToString(v, "gbk", "utf-8")
 			hrefArr[i] = content
 		}
 		hrefStr := strings.Join(hrefArr, ",")
 		fmt.Println(hrefStr)
 
 		//写到本地文本
-		commonUtils.AppendToFile(fileName_href, hrefStr)
+		AppendToFile(fileName_href, hrefStr)
 		hrefMap["a"] = hrefArr
 
 		//获取标题
 		titleArr := e.ChildText("dt")
-		titleArr_ := commonUtils.ConvertToString(titleArr, "gbk", "utf-8")
+		titleArr_ := ConvertToString(titleArr, "gbk", "utf-8")
 		fmt.Println(titleArr_)
 		//len_titleArr := len(titleArr)
 		//titleSaveArr := make([]string, len_titleArr)
 		//for i, v := range titleArr {
-		//	content := commonUtils.ConvertToString(v, "gbk", "utf-8")
+		//	content := ConvertToString(v, "gbk", "utf-8")
 		//	titleSaveArr[i] = content
 		//}
 		//titleStr := strings.Join(titleSaveArr, ",")
@@ -131,13 +131,13 @@ func ReadNovelDemo1() {
 		title_ := e.ChildText("table:nth-child(4)  font")
 		content_ := e.ChildText("table:nth-child(5)  p")
 		//fmt.Printf("Link found: %v\n", e.Text)
-		title := commonUtils.ConvertToString(title_, "gbk", "utf-8")
-		content := commonUtils.ConvertToString(content_, "gbk", "utf-8")
+		title := ConvertToString(title_, "gbk", "utf-8")
+		content := ConvertToString(content_, "gbk", "utf-8")
 		//fmt.Printf("Link found: %v\n%v\n", title, content)
 
 		//写到本地文本
-		commonUtils.AppendToFile("E:/novel_jn.txt", "\n\n\n"+title+"\n\n")
-		commonUtils.AppendToFile("E:/novel_jn.txt", content)
+		AppendToFile("E:/novel_jn.txt", "\n\n\n"+title+"\n\n")
+		AppendToFile("E:/novel_jn.txt", content)
 
 		Count++
 		if Count >= pageNum {

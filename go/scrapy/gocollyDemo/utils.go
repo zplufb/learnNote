@@ -19,7 +19,7 @@ import (
 	"bytes"
 	"strings"
 	"errors"
-)
+	)
 
 func ShowVals(vals ...interface{}) {
 	for _, v := range vals {
@@ -65,7 +65,7 @@ func DownloadImage(url string, save_path_dir string) (err error) {
 
 	//判定目录是否存在，不存在，则创建
 	//dir, _ := filepath.Split(path)
-	IO.DirIsExist(save_path_dir)
+	DirIsExist(save_path_dir)
 
 	//判定是否已经存在
 	err = IsFileExisted(filename)
