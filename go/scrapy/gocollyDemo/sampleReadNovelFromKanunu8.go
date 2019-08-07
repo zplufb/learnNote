@@ -16,6 +16,8 @@ import (
 	"strconv"
 	"math/rand"
 	"time"
+	"github.com/mahonia"
+	"bufio"
 )
 
 //TODO 待修改
@@ -65,8 +67,9 @@ func CollectLinks(urlIndex string) (hrefMap map[string][]string) {
 	// On every a element which has href attribute call callback
 	c.OnHTML(".book > dl", func(e *colly.HTMLElement) {
 
+
 		//获取links
-		contentArr := e.ChildAttrs("a", "href")
+		contentArr := e.ChildAttrs("dd a", "href")
 		len_hrefArr := len(contentArr)
 		hrefArr := make([]string, len_hrefArr)
 
@@ -81,10 +84,27 @@ func CollectLinks(urlIndex string) (hrefMap map[string][]string) {
 		AppendToFile(fileName_href, hrefStr)
 		hrefMap["a"] = hrefArr
 
+		len_ := e.DOM.Find("dt").Length()
 		//获取标题
-		titleArr := e.ChildText("dt")
-		titleArr_ := ConvertToString(titleArr, "gbk", "utf-8")
-		fmt.Println(titleArr_)
+		for i := 0; i < len_; i++ {
+			str := e.DOM.Find("dt").Eq(i).Text()
+			titleArr_ := ConvertToString(str, "gbk", "utf-8")
+			fmt.Println("len_=", i, "->", titleArr_)
+
+			strText := e.DOM.Find("dt").Eq(i).NextUntil("dt").Find("a[href]").Text()
+			strText_ := ConvertToString(strText, "gbk", "utf-8")
+			fmt.Println("len_=", i, "strText_->", strText_)
+
+			arr := e.DOM.Find("dt").Eq(i).NextUntil("dt").Nodes
+			for i, v := range arr {
+				content := ConvertToString(v.Data, "gbk", "utf-8")
+				fmt.Println("i=",i,"content=",content)
+			}
+
+		}
+
+
+
 		//len_titleArr := len(titleArr)
 		//titleSaveArr := make([]string, len_titleArr)
 		//for i, v := range titleArr {
@@ -166,4 +186,33 @@ func GetNextUrl() (url_next string) {
 	url_next = "https://www.kanunu8.com/book/4493/" + str_page + ".html"
 
 	return
+}
+
+func ConvertToString(src string, srcCode string, tagCode string) string {
+
+	srcCoder := mahonia.NewDecoder(srcCode)
+	srcResult := srcCoder.ConvertString(src)
+	tagCoder := mahonia.NewDecoder(tagCode)
+	_, cdata, _ := tagCoder.Translate([]byte(srcResult), true)
+	result := string(cdata)
+
+	return result
+
+}
+
+func AppendToFile(file, str string) (err error) {
+	f, err := os.OpenFile(file, os.O_CREATE|os.O_APPEND|os.O_RDWR, 0660)
+	if err != nil {
+		fmt.Printf("Cannot open file %s!\n", file)
+		return
+	}
+	defer f.Close()
+
+	writer := bufio.NewWriter(f)
+	num, err := writer.WriteString(str)
+	fmt.Println("num=", num)
+	err = writer.Flush()
+
+	return
+
 }
