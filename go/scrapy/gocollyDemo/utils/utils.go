@@ -19,7 +19,7 @@ import (
 	"bytes"
 	"strings"
 	"errors"
-	)
+)
 
 func ShowVals(vals ...interface{}) {
 	for _, v := range vals {
@@ -48,8 +48,11 @@ func AppendToFile(file, str string) (err error) {
 	defer f.Close()
 
 	writer := bufio.NewWriter(f)
-	num, err := writer.WriteString(str)
-	fmt.Println("num=", num)
+	_, err = writer.WriteString(str)
+	if err != nil {
+		return
+	}
+	//fmt.Println("num=", num)
 	err = writer.Flush()
 
 	return

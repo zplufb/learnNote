@@ -24,10 +24,10 @@ func Search(key string) (href string) {
 		colly.AllowedDomains(domain),
 	)
 
-	c.OnHTML(".rtive", func(e *colly.HTMLElement) {
+	c.OnHTML("#t_q_tab_drama", func(e *colly.HTMLElement) {
 		var exist bool
 		//TODO 默认取第一个链接
-		href, exist = e.DOM.Find("a").Attr("href")
+		href, exist = e.DOM.Find(".rtive").First().Find("a").Attr("href")
 		if exist {
 			fmt.Println("href=", href)
 		}
