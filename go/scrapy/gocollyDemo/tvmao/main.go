@@ -3,9 +3,10 @@ package main
 import (
 	"os"
 	"fmt"
+	"Test001/golang/scrapy/gocollyDemo/tvmao/sample"
 )
 
-var fileName = "E:/ZTestData/tvmao_sjdzd.txt"
+var fileName = "E:/ZTestData/tvmao_sjdzd2.txt"
 
 func init() {
 	//删除指定文件
@@ -16,5 +17,6 @@ func init() {
 
 }
 func main() {
-	StartCollect()
+	//StartCollect()
+	sample.StartCollectV2()
 }
