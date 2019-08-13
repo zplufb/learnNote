@@ -78,28 +78,35 @@ func GetInfo(urlInit string) (title string, info string, epiCount int) {
 
 	return
 }
-func StartCollect(urlDrama string,savePathDir string) {
+func StartCollect(urlDrama string, savePathDir string) {
 
 	//获取标题，信息，集数
 	urlInit := http_proxy + domain + urlDrama
 	title, info, epiCount := GetInfo(urlInit)
 	//判定文件夹是否存在，若不存在则新建
-	ok ,err := CollyUtils.AutoCreateDirWhenNotExist(savePathDir)
-	if !ok{
+	ok, err := CollyUtils.AutoCreateDirWhenNotExist(savePathDir)
+	if !ok {
 		log.Println(err)
 		return
 	}
 
-
 	//写到本地文本
 	fileName := savePathDir + title + ".txt"
+	//判定是否已经存在，如果存在，则不处理
+	//err = CollyUtils.IsFileExisted(fileName)
+	//if err == nil {
+	//	return
+	//}
+
 	CollyUtils.AppendToFile(fileName, info)
+
 	//init
 	urlEpisode := http_proxy + domain + urlDrama + "/episode"
 	fmt.Println("title=", title, "\nInfo=", info, "\nepiCount=", epiCount, "\nfilename=", fileName, "\ninitUrl=", urlInit, "\nurlEpisode=", urlEpisode)
 
 	//init var
 	count := 0
+	countNext := 0
 
 	//选择器
 	//$("strong.font20").text() //标题
@@ -127,7 +134,9 @@ func StartCollect(urlDrama string,savePathDir string) {
 		href, _ = e.DOM.Find("article +.alignct a:nth-child(2)").Attr("href")
 		if href == "" {
 			//只有第一集的链接只有一个：下一集。
+			//在热播，最后一集，只有剩下上一集，会自动结束
 			href, _ = e.DOM.Find("article +.alignct a").Attr("href")
+			countNext ++
 		}
 
 		fmt.Printf("Next Chapter Link found: %v\n", href)
@@ -137,7 +146,7 @@ func StartCollect(urlDrama string,savePathDir string) {
 		CollyUtils.AppendToFile(fileName, content)
 
 		count++
-		if count >= epiCount {
+		if count >= epiCount || countNext == 2{
 			fmt.Println("Collect Completed ")
 		} else {
 			randNum := rand.Int63n(1000)
