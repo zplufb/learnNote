@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TVMao Download Resource</title>
+    <style>
+        .topic_search_input {
+            height: 38px;
+            border: 0;
+            border: 1px solid #3fabf3;
+            color: #000;
+            outline: medium;
+            line-height: 38px;
+            margin-right: -5px;
+            padding-left: 13px;
+            float: left;}
+        .topic_button_blue {
+            border: 1px solid #56a8e1;
+            background: #3fabf3;
+            height: 42px;
+            width: 80px;
+            color: white;
+            margin-left: -2px;
+            cursor: pointer;
+        }
+        .font16 {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<div class="lt" style="margin:17px 20px">
+    <form method="get" action="/query" name="QF" id="searchform">
+        <input style="vertical-align: middle; color: rgb(204, 204, 204);" type="text" id="key" name="key" class="topic_search_input ed ui-autocomplete-input" title="输入电视剧名称" autocomplete="off" maxlength="40" size="40" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+        <input type="hidden" name="ed">
+        <button type="submit" class="topic_button_blue font16" style="vertical-align: middle;" value="确认">确认</button>
+    </form>
+</div>
+</body>
+</html>
