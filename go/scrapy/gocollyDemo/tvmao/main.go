@@ -18,5 +18,9 @@ func init() {
 }
 func main() {
 	//StartCollect()
-	sample.StartCollectV2()
+	//搜索获取其相关信息
+	key := "天才"
+	urlDrama := tvmao.Search(key)
+	savePathDir := "E:/ZTestData/TVMao/"
+	tvmao.StartCollect(urlDrama,savePathDir)
 }

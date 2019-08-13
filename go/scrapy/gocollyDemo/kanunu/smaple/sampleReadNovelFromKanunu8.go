@@ -6,7 +6,7 @@
  * @Date: 2019/7/31 16:06
  */
 
-package main
+package kanunu
 
 import (
 	"os"
@@ -47,11 +47,7 @@ func init() {
 
 }
 
-func main() {
-	//收集小说每章节的链接
-	CollectLinks(UrlIndex)
-	//ReadNovelDemo1()
-}
+
 
 func CollectLinks(urlIndex string) (hrefMap map[string][]string) {
 

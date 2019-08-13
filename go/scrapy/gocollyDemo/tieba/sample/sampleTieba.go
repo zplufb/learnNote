@@ -6,7 +6,7 @@
  * @Date: 2019/8/1 16:54
  */
 
-package main
+package tieba
 
 import (
 	"fmt"
@@ -14,15 +14,10 @@ import (
 	"strings"
 	"log"
 	"strconv"
+	"Test001/golang/scrapy/gocollyDemo/utils"
 )
 
-func main() {
 
-	url := "https://tieba.baidu.com/p/4803144798"
-	pageNum := GetTiebaPage(url)
-	needNum := 10
-	GetTiebaImages(url, pageNum, needNum)
-}
 
 func GetTiebaImages(url string, pageNum int, needNum int) {
 
@@ -66,7 +61,7 @@ func GetTiebaImages(url string, pageNum int, needNum int) {
 
 		//下载到本地
 		for _, v := range contentArr {
-			err := DownloadImage(v, saveImgPath)
+			err := CollyUtils.DownloadImage(v, saveImgPath)
 			if err != nil {
 				log.Println(err)
 				return

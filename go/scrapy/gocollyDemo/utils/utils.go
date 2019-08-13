@@ -65,7 +65,7 @@ func DownloadImage(url string, save_path_dir string) (err error) {
 
 	//判定目录是否存在，不存在，则创建
 	//dir, _ := filepath.Split(path)
-	DirIsExist(save_path_dir)
+	AutoCreateDirWhenNotExist(save_path_dir)
 
 	//判定是否已经存在
 	err = IsFileExisted(filename)
@@ -118,7 +118,7 @@ func IsFileExisted(path string) (err error) {
 }
 
 // 判断目录是否存在,不存在则新建一个
-func DirIsExist(path string) (bool, error) {
+func AutoCreateDirWhenNotExist(path string) (bool, error) {
 	_, err := os.Stat(path)
 	if err == nil {
 		return true, nil
