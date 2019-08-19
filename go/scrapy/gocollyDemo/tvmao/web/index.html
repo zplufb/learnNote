@@ -37,10 +37,18 @@
             $("#submit").click(function () {
                 val = $("#key").val()
                 console.log("key val=", val)
+<<<<<<< HEAD
                 $("#text").html("<span style='color:orange'>正在下载电视剧<span style='color:blue'>" + val + "<span style='color:orange'>剧情分集...</span></span></span>")
                 $.ajax({
                     type: "GET",
                     url: "/query?key="+val,
+=======
+                $("#text").html("<span style='color:orange'>正在下载电视剧<span style='color:blue'>" + val + "剧情分集...</span></span>")
+                $.ajax({
+                    type: "post",
+                    url: "/query",
+                    data: {key: val},
+>>>>>>> fd158c889244924c570e72ea81383ff0b0dfacd6
                     dataType: "json",
                     success: function (data) {
                         console.log(data)
