@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>TVMao Download Resource</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
     <style>
         .topic_search_input {
             height: 38px;
@@ -13,7 +15,9 @@
             line-height: 38px;
             margin-right: -5px;
             padding-left: 13px;
-            float: left;}
+            float: left;
+        }
+
         .topic_button_blue {
             border: 1px solid #56a8e1;
             background: #3fabf3;
@@ -23,19 +27,47 @@
             margin-left: -2px;
             cursor: pointer;
         }
+
         .font16 {
             font-size: 16px;
         }
     </style>
+    <script>
+        $(document).ready(function () {
+            $("#submit").click(function () {
+                val = $("#key").val()
+                console.log("key val=", val)
+                $("#text").html("<span style='color:orange'>正在下载电视剧<span style='color:blue'>" + val + "<span style='color:orange'>剧情分集...</span></span></span>")
+                $.ajax({
+                    type: "GET",
+                    url: "/query?key="+val,
+                    dataType: "json",
+                    success: function (data) {
+                        console.log(data)
+                        if (data.Code == 200) {
+                            $("#text").html("<span style='color:green'>下载" + val + "完成</span>")
+                        } else {
+                            $("#text").html("<span style='color:red'>下载" + val + "失败</span>")
+                        }
+                    }
+
+                })
+            })
+        })
+
+    </script>
 </head>
 <body>
 <div class="lt" style="margin:17px 20px">
     <h4>功能：下载指定电视剧分集剧情，来源：https://www.tvmao.com/</h4>
     <h3>请输入电视剧名称:</h3>
-    <form method="get" action="/query" id="searchform">
-        <input style="vertical-align: middle; color: rgb(204, 204, 204);" type="text" id="key" name="key" class="topic_search_input" title="输入电视剧名称" autocomplete="off" maxlength="40" size="40" role="textbox" aria-autocomplete="list" aria-haspopup="true">
-        <button type="submit" class="topic_button_blue font16" style="vertical-align: middle;" value="确认">确认</button>
+    <form>
+        <input style="vertical-align: middle; color: rgb(204, 204, 204);" type="text" id="key" name="key"
+               class="topic_search_input" title="输入电视剧名称" autocomplete="off" maxlength="40" size="40" role="textbox"
+               aria-autocomplete="list" aria-haspopup="true">
+        <button class="topic_button_blue font16" style="vertical-align: middle;" value="确认" id="submit">确认</button>
     </form>
+    <div id="text"></div>
 </div>
 </body>
 </html>

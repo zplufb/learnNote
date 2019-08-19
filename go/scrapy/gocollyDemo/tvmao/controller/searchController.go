@@ -3,8 +3,8 @@ package searchController
 import (
 		"fmt"
 	"net/http"
+		"Test001/golang/scrapy/gocollyDemo/utils"
 	"Test001/golang/scrapy/gocollyDemo/tvmao/server"
-	"Test001/golang/scrapy/gocollyDemo/utils"
 )
 
 func Search(w http.ResponseWriter, r *http.Request) {
@@ -16,19 +16,20 @@ func Search(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("content-type", "application/json")             // 返回数据格式是JSON
 
 	switch r.Method {
-	case "GET":
+	case "GET","POST":
 		{
 			key := r.FormValue("key")
 
 			if key == ""{
-				resp_json := CollyUtils.GetRespJson(400, "参数有误！", nil)
+				resp_json := CollyUtils.GetRespJson(400, "参数有误！", key)
 				fmt.Fprintln(w, string(resp_json))
 				return
 			}
 
 			ok := searchServer.StartSearch(key)
+
 			if ok {
-				resp_json := CollyUtils.GetRespJson(200, "下载成功！", nil)
+				resp_json := CollyUtils.GetRespJson(200, "下载成功！", key)
 				fmt.Fprintln(w, string(resp_json))
 				return
 			}

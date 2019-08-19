@@ -137,6 +137,7 @@ func StartCollect(urlDrama string, savePathDir string) {
 			//在热播，最后一集，只有剩下上一集，会自动结束
 			href, _ = e.DOM.Find("article +.alignct a").Attr("href")
 			countNext ++
+			fmt.Println("countNext=",countNext)
 		}
 
 		fmt.Printf("Next Chapter Link found: %v\n", href)
@@ -146,7 +147,7 @@ func StartCollect(urlDrama string, savePathDir string) {
 		CollyUtils.AppendToFile(fileName, content)
 
 		count++
-		if count >= epiCount || countNext == 2{
+		if count >= epiCount -1 || countNext == 2{
 			fmt.Println("Collect Completed ")
 		} else {
 			randNum := rand.Int63n(1000)
