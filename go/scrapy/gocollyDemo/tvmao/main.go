@@ -13,7 +13,7 @@ func init() {
 	h := http.FileServer(http.Dir("/Go-Work/src/Test001/golang/scrapy/gocollyDemo/tvmao/web/"))
 	http.Handle("/",  http.StripPrefix("",h))
 
-	fmt.Println("Server is starting...")
+	fmt.Println("Server is started")
 }
 
 func main() {
