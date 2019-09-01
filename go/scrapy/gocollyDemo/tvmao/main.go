@@ -10,7 +10,7 @@ import (
 func init() {
 	http.HandleFunc("/query", searchController.Search)
 
-	h := http.FileServer(http.Dir("/gocollyDemo/tvmao/web/"))
+	h := http.FileServer(http.Dir("/GoWorkspace/src/gocollyDemo/tvmao/web/"))
 	http.Handle("/",  http.StripPrefix("",h))
 
 	fmt.Println("Server is started")
