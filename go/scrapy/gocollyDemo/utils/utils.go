@@ -19,6 +19,8 @@ import (
 	"bytes"
 	"strings"
 	"errors"
+	"encoding/json"
+	"log"
 )
 
 func ShowVals(vals ...interface{}) {
@@ -146,4 +148,28 @@ func CreateDir(path string) (bool, error) {
 	} else {
 		return true, nil
 	}
+}
+
+type RespBody struct{
+	Code int
+	Msg string
+	Data interface{}
+}
+
+func GetRespJson(status int, msg string ,data interface{})(ret string){
+
+	var respData RespBody
+	respData.Code = status
+	respData.Msg = msg
+	respData.Data = data
+
+	ret_,err := json.Marshal(respData)
+	if err != nil{
+		log.Println("err=",err)
+		return
+	}
+
+	ret = string(ret_)
+
+	return
 }

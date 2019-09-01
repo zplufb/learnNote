@@ -5,10 +5,10 @@ import (
 	"github.com/gocolly/colly"
 	"math/rand"
 	"time"
-	"Test001/golang/scrapy/gocollyDemo/utils"
 	"strconv"
 	"net/url"
 	"log"
+	"gocollyDemo/utils"
 )
 
 //自动在该网站搜索电视剧名称
