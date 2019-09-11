@@ -1,0 +1,45 @@
+/**
+ * @Author: FB
+ * @Description: 
+ * @File:  Type.go
+ * @Version: 1.0.0
+ * @Date: 2019/9/10 13:51
+ */
+
+package CommonVar
+
+const (
+	//Verify Code
+	TYPE_VERIFY_CODE_BIND         = 101
+	TYPE_VERIFY_CODE_MODIFY_PWD   = 102
+	TYPE_VERIFY_CODE_RESET_PWD    = 103
+	TYPE_VERIFY_CODE_CANCELLATION = 104
+
+	//Basic Setting
+	TYPE_BASIC_SETTING_VERIFY_CODE_TIME             = 111
+	TYPE_BASIC_SETTING_VERIFY_CODE_TEMPLATE_BODY    = 112
+	TYPE_BASIC_SETTING_VERIFY_CODE_TEMPLATE_SUBJECT = 113
+
+	//Group
+	TYPE_GROUP_COMMON   = 121
+	TYPE_GROUP_VIP      = 122
+	TYPE_GROUP_DESIGNER = 123
+)
+
+var TypeMap = map[int]string{
+	//Verify Code
+	TYPE_VERIFY_CODE_BIND:         "首次绑定",
+	TYPE_VERIFY_CODE_MODIFY_PWD:   "修改密码",
+	TYPE_VERIFY_CODE_RESET_PWD:    "重置密码",
+	TYPE_VERIFY_CODE_CANCELLATION: "注销账号",
+
+	//Basic Setting
+	TYPE_BASIC_SETTING_VERIFY_CODE_TIME:             "验证码有效时间",
+	TYPE_BASIC_SETTING_VERIFY_CODE_TEMPLATE_BODY:    "验证码模板正文",
+	TYPE_BASIC_SETTING_VERIFY_CODE_TEMPLATE_SUBJECT: "验证码模板标题",
+
+	//Group
+	TYPE_GROUP_COMMON:   "普通用户",
+	TYPE_GROUP_VIP:      "VIP用户",
+	TYPE_GROUP_DESIGNER: "设计师",
+}

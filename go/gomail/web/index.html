@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gomail by Fanbi</title>
+    <script src="static/js/jquery1.10.2.mini.js"></script>
+    <style type="text/css">
+        .clear {
+            clear: both;
+            margin-top: 1%
+        }
+
+        button {
+            border: 1px solid #56a8e1;
+            background: #3fabf3;
+            height: 40px;
+            width: 80px;
+            color: white;
+            margin-left: -5px;
+            padding-bottom: 3px;
+            cursor: pointer;
+        }
+
+        input {
+            height: 36px;
+            border: 0;
+            border: 1px solid #3fabf3;
+            color: #000;
+            outline: medium;
+        / / line-height: 38 px;
+        / / padding-left: 13 px;
+        / / float: left;
+        }
+    </style>
+    <script>
+
+        $().ready(() => {
+
+            $("#sendVerifyCode").click(() => {
+                url = "/sendVerifyCode"
+                data = $("#sendVerifyCode").parent("form").serialize()
+                commonAjax(url, data)
+            })
+
+            $("#checkVerifyCode").click(() => {
+                url = "/checkVerifyCode"
+                data = $("#checkVerifyCode").parent("form").serialize()
+                commonAjax(url, data)
+            })
+
+
+            $("#sendMail").click(() => {
+                url = "/sendMail"
+                data = $("#sendMail").parent("form").serialize()
+                commonAjax(url, data)
+            })
+
+            $("#createMailSetting").click(() => {
+                url = "/createMailSetting"
+                data = $("#createMailSetting").parent("form").serialize()
+                commonAjax(url, data)
+            })
+
+            $("#createBasicSetting").click(() => {
+                url = "/createBasicSetting"
+                data = $("#createBasicSetting").parent("form").serialize()
+                commonAjax(url, data)
+            })
+
+            //TODO 有发送成功，然后刷新页面,待查
+            function commonAjax(url, data) {
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: data,
+                    dataType: "json",
+                    success: function (resp) {
+                        if (resp.status == 200) {
+                            $("#tip").html('<span style="color:green">操作成功</span>')
+                        } else {
+                            $("#tip").html('<span style="color:red">errcode=' + resp.errcode + '</span>')
+                        }
+                    },
+                    error: function (resp) {
+                        console.log("err=", resp)
+                    }
+
+                })
+            }
+
+
+            function CommonFetch(url, data) {
+                fetch(url, {
+                    method: 'get',
+                    data: {mailto: 123}
+                }).then(res => {
+                    return res.json();
+                }).then(res => {
+                    console.log(res)
+                    if (resp.status == 200) {
+                        $("#tip").html('<span style="color:green">操作成功</span>')
+                    } else {
+                        $("#tip").html('<span style="color:red">errcode=' + resp.errcode + '</span>')
+                    }
+                });
+            }
+
+        })
+
+    </script>
+</head>
+<body>
+<div>样例1：发送验证码
+    <div>
+        <form>
+            <!--
+             TYPE_VERIFY_CODE_BIND         = 101
+             TYPE_VERIFY_CODE_MODIFY_PWD   = 102
+             TYPE_VERIFY_CODE_RESET_PWD    = 103
+             TYPE_VERIFY_CODE_CANCELLATION = 104
+            -->
+            收件人：<input type="text" name="mailto">
+            类型：<input type="text" name="type" placeholder="bind(101),m(102),r(103)">
+            <button id="sendVerifyCode">发送</button>
+        </form>
+    </div>
+    <div>
+        <form>
+            收件人：<input type="text" name="mailto">
+            验证码：<input type="text" name="verifycode">
+            <button id="checkVerifyCode">验证</button>
+        </form>
+    </div>
+</div>
+<div class="clear"></div>
+<div>样例2：发送邮件（发件人（下拉选择)，收件人，标题，内容)
+    <div>
+        <form>
+            发件人：<input type="text" name="mailfrom">
+            收件人：<input type="text" name="mailto">
+            标题：<input type="text" name="subject">
+            内容：<input type="text" name="content">
+            <button id="sendMail">发送</button>
+        </form>
+    </div>
+</div>
+<div class="clear"></div>
+
+<div>样例3：创建发送人
+    <div>
+        <div>
+            <form>
+                发送人：<input type="text" name="user">
+                别称（可选）：<input type="text" name="userAlias">
+                密码：<input type="text" name="password">
+                SMTP：<input type="text" name="host">
+                端口（可选）：<input type="text" placeholder="465或者587" name="port">
+                <button id="createMailSetting">创建</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+
+<div>样例4：创建基本配置
+    <div>
+        <div>
+            <form>
+                类别（下拉）<input type="text" name="type">
+                数据：<input type="text" name="data">
+                版本（可选）：<input type="text" name="version">
+                <button id="createBasicSetting">创建</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+
+<div>样例：发送人列表
+    <div>
+        <table id="senderlist">
+
+        </table>
+    </div>
+</div>
+<div class="clear"></div>
+
+<div style="float: left;">信息：</div>
+<div id="#tip" style="float: left;"><span style="color:green">准备就绪</span></div>
+
+</body>
+</html>
