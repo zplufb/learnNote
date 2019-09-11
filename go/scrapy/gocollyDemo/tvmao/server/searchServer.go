@@ -1,11 +1,11 @@
 package searchServer
 
-import "Test001/golang/scrapy/gocollyDemo/tvmao/sample"
+import "gocollyDemo/tvmao/sample"
 
 func StartSearch(key string) (ok bool){
 
 	urlDrama := tvmao.Search(key)
-	savePathDir := "E:/ZTestData/TVMao/"
+	savePathDir := "C:/ZTestData/TVMao/"
 	tvmao.StartCollect(urlDrama,savePathDir)
 
 	ok = true

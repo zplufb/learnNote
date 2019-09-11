@@ -1,13 +1,10 @@
 package searchController
 
 import (
-		"fmt"
+	"fmt"
 	"net/http"
-		"Test001/golang/scrapy/gocollyDemo/utils"
-<<<<<<< HEAD
-	"Test001/golang/scrapy/gocollyDemo/tvmao/server"
-=======
->>>>>>> fd158c889244924c570e72ea81383ff0b0dfacd6
+	"gocollyDemo/tvmao/server"
+	"gocollyDemo/utils"
 )
 
 func Search(w http.ResponseWriter, r *http.Request) {
@@ -19,27 +16,19 @@ func Search(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("content-type", "application/json")             // 返回数据格式是JSON
 
 	switch r.Method {
-<<<<<<< HEAD
-	case "GET","POST":
-=======
+
 	case "POST":
->>>>>>> fd158c889244924c570e72ea81383ff0b0dfacd6
 		{
 			key := r.FormValue("key")
 
-			if key == ""{
+			if key == "" {
 				resp_json := CollyUtils.GetRespJson(400, "参数有误！", key)
 				fmt.Fprintln(w, string(resp_json))
 				return
 			}
 
-<<<<<<< HEAD
 			ok := searchServer.StartSearch(key)
 
-=======
-			//ok := searchServer.StartSearch(key)
-			ok := true
->>>>>>> fd158c889244924c570e72ea81383ff0b0dfacd6
 			if ok {
 				resp_json := CollyUtils.GetRespJson(200, "下载成功！", key)
 				fmt.Fprintln(w, string(resp_json))
