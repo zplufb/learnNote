@@ -1,7 +1,8 @@
 #level_high {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;color:red;overflow-y:scroll}
 #level_mid {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;color:orange;overflow-y:scroll}
-#level_low {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;color:gray;overflow-y:scroll}
-#candicate_list{width:350px;height:70px;padding:10px;margin-top: 10px;border:1px solid #aaaaaa;color:gray;overflow-y:scroll}
+#level_low {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;color:#cddc39;overflow-y:scroll}
+#candicate_list{width:350px;height:70px;padding:10px;margin-top: 10px;border:1px solid #aaaaaa;color:black;overflow-y:scroll}
+#level_recycle{width:350px;height:70px;padding:10px;margin-top: 10px;border:1px solid #ffaaaa;color:gray;overflow-y:scroll}
 
 fieldset {width:350px;}
 
