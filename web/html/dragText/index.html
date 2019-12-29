@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Content-Type" content="text/html">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no" name="format-detection">
+    <!-- UC默认竖屏 ，UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <meta name="browsermode" content="application">
+    <!-- QQ强制竖屏 QQ强制全屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    <meta name="format-detection" content="email=no" />
+    <meta name="msapplication-tap-highlight" content="no">
+  <title>优先级调整</title>
+  <authod> 
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="static/main.css">
+  <script src="static/main.js"></script>
+  <style type="text/css">
+
+</style> 
+  <script>
+
+</script> 
+ </head> 
+ <body> 
+  <h3>事件优先级调整:</h3> 
+  <fieldset> 
+  	<legend>高优先级</legend>
+   <div id="level_high" ondrop="drop(event)" ondragover="allowDrop(event)"></div> 
+   <button id="new_event" onclick="clearEventH()">清空当前事件</button> 
+  </fieldset> 
+  <fieldset> 
+  	<legend>中优先级</legend>
+   <div id="level_mid" ondrop="drop(event)" ondragover="allowDrop(event)"></div> 
+    <button id="new_event" onclick="clearEventM()">清空当前事件</button> 
+  </fieldset> 
+  <fieldset> 
+  	<legend>低优先级</legend>
+   <div id="level_low" ondrop="drop(event)" ondragover="allowDrop(event)"></div> 
+    <button id="new_event" onclick="clearEventL()">清空当前事件</button> 
+  </fieldset> 
+  <br/> 
+  <button id="new_event" onclick="newEvent()">新增事件</button> 
+  <button id="new_event" onclick="clearAllEvent()">清空所有事件</button> 
+  <button id="new_event" onclick="deleleEventCandicate()">删除候选事件</button> 
+  <div id="candicate_list"></div>  
+ </body>
+</html>
