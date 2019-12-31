@@ -3,3 +3,4 @@ wk1952
 191227 friday dragText.html
 191228 ~
 191229 word to write
+191230 go gin example
