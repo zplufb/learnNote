@@ -4,3 +4,4 @@ wk1952
 191228 ~
 191229 word to write
 191230 go gin example
+191231 fun video + golang for work
