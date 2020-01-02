@@ -1,0 +1,102 @@
+<html>
+<title>Test mkChar</title>
+<head>
+    <script src="/static/js/common/jquery-2.1.4.min.js"></script>
+    <style>
+
+        td {
+            border: 1px solid #777;
+        }
+
+    </style>
+    <script type="text/javascript">
+
+        var model_height = 16;
+        var model_width = 16;
+
+
+        $(document).ready(function () {
+
+            //init
+            DrawMainUI();
+
+            function DrawMainUI() {
+
+                //reset div
+                $("#left").html("");
+                var table = $("<table>").appendTo($("#left"));
+                for (var i = -1; i < model_height; i++) {
+                    var row = $("<tr>").appendTo(table);
+                    for (var j = -1; j < model_width; j++) {
+                        //row.append("<td>null</td>");
+                        if (i == -1 || j == -1) {
+                            if (i == -1)
+                                $("<td noflag=1 id=mtd_" + (i * model_width + j) + " style='width:20px;height:20px'>" + (j + 1) + "</td>").appendTo(row);
+                            else
+                                $("<td noflag=1 id=mtd_" + (i * model_width + j) + " style='width:20px;height:20px'>" + (i + 1) + "</td>").appendTo(row);
+                        } else {
+                            $("<td flag=0 id=mtd_" + (i * model_width + j) + " style='width:20px;height:20px'></td>").appendTo(row);
+                        }
+
+                    }
+
+                }
+            }
+
+
+            //鼠标按住，描色，默认红色或者黑色
+            //单个点击
+            $("table td").click(function () {
+
+                if ($(this).attr("noflag") == 1) {
+                    return;
+                }
+
+                var bgcolor = $(this).css("background-color");
+                if (bgcolor == "rgba(0, 0, 0, 0)" || bgcolor == "rgb(255, 255, 255)")
+                    $(this).css("background-color", "#f00").attr("flag", 1);
+                else {
+                    $(this).css("background-color", "#fff").attr("flag", 0);
+                }
+            })
+
+            $("#get_char_pos").click(function () {
+
+                var html = "";
+                var arr_pos = [];
+                //遍历表标记为1的位置信息
+                for (var i = 0; i < model_height; i++)
+                    for (var j = 0; j < model_width; j++) {
+                        var idstr = i * model_width + j;
+                        var flag = $("#mtd_" + idstr).attr("flag");
+                        if (flag == 1) {
+                            //解析放到结果集
+                            arr_pos.push(i, j);
+                        }
+
+                    }
+
+                html = arr_pos.toString();
+                console.log("arr_pos", arr_pos);
+
+                $("#result").html(html);
+            });
+
+            $("#clear_all_red").click(function () {
+
+                location.reload();
+            });
+
+        });
+
+
+    </script>
+</head>
+<body>
+This is a char generator for firework chars code
+<div id="left"></div>
+<button id="get_char_pos">查看字符位置信息</button>
+<button id="clear_all_red">重置字符及结果信息</button>
+<div id="result"></div>
+</body>
+</html>
