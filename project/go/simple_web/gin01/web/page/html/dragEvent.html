@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta content="always" name="referrer">
+
+  <title>优先级调整</title>
+  <authod> 
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script> 
+  <style type="text/css">
+#level_high {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;color:red;overflow-y:scroll}
+#level_mid {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;color:orange;overflow-y:scroll}
+#level_low {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;color:gray;overflow-y:scroll}
+#candicate_list{width:350px;height:70px;padding:10px;margin-top: 10px;border:1px solid #aaaaaa;color:gray;overflow-y:scroll}
+
+fieldset {width:350px;}
+
+
+div[draggable]{
+float: left;
+margin-right: 2%
+}
+
+</style> 
+  <script>
+function allowDrop(ev)
+{
+	ev.preventDefault();
+}
+
+function drag(ev)
+{
+	ev.dataTransfer.setData("Text",ev.target.id);
+}
+
+function drop(ev)
+{
+	ev.preventDefault();
+	var data=ev.dataTransfer.getData("Text");
+	ev.target.appendChild(document.getElementById(data));
+}
+
+function newEvent(){
+
+var list = $("#candicate_list")
+itemArr = promptNewEvent()
+len=item.length
+
+list.append(itemArr)
+
+}
+
+function deleteEvent(){
+
+var list = $("#candicate_list")
+itemArr = promptNewEvent()
+len=item.length
+
+list.append(itemArr)
+
+}
+
+function clearEventH(){
+
+$("#level_high").html("")
+
+}
+
+function clearEventM(){
+
+$("#level_mid").html("")
+
+}
+
+function clearEventL(){
+
+
+$("#level_low").html("")
+
+}
+
+function clearAllEvent(){
+
+$("#level_high").html("")
+$("#level_mid").html("")
+$("#level_low").html("")
+
+}
+
+function deleleEventCandicate(){
+
+$("#candicate_list").html("")
+}
+
+
+
+function promptNewEvent(){
+
+var tipName = "请输入事件名称(多个事件用空格隔开)"
+	var eventName = prompt(tipName,"")
+	eventName = eventName.trim()
+	while(eventName === null || eventName === ""){
+		eventName = prompt(tipName,"")
+	}
+
+	eventNameStr = eventName.replace(/\s+/g," ")
+	eventNameArr = eventNameStr.split(" ")
+
+itemArr = []
+for(var i=0;i<eventNameArr.length;i++){
+	var ele = eventNameArr[i]
+	item = '<div class="item" id="'+ele+'" draggable="true" ondragstart="drag(event)" width="auto" height="69">'+ele+'</div>'
+	itemArr[i] = item
+}
+
+	return itemArr
+}
+
+</script> 
+ </head> 
+ <body> 
+  <h3>事件优先级调整:</h3> 
+  <fieldset> 
+  	<legend>高优先级</legend>
+   <div id="level_high" ondrop="drop(event)" ondragover="allowDrop(event)"></div> 
+   <button id="new_event" onclick="clearEventH()">清空当前事件</button> 
+  </fieldset> 
+  <fieldset> 
+  	<legend>中优先级</legend>
+   <div id="level_mid" ondrop="drop(event)" ondragover="allowDrop(event)"></div> 
+    <button id="new_event" onclick="clearEventM()">清空当前事件</button> 
+  </fieldset> 
+  <fieldset> 
+  	<legend>低优先级</legend>
+   <div id="level_low" ondrop="drop(event)" ondragover="allowDrop(event)"></div> 
+    <button id="new_event" onclick="clearEventL()">清空当前事件</button> 
+  </fieldset> 
+  <br/> 
+  <button id="new_event" onclick="newEvent()">新增事件</button> 
+  <button id="new_event" onclick="clearAllEvent()">清空所有事件</button> 
+  <button id="new_event" onclick="deleleEventCandicate()">删除候选事件</button> 
+  <div id="candicate_list"></div>  
+ </body>
+</html>
