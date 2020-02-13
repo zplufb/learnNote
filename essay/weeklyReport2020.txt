@@ -1,3 +1,4 @@
+﻿Jan
 wk2001
 200102 gin example will deploy to cloud server nok local ok
 200103 taobao sth for wedding, money come back 3w
@@ -15,6 +16,8 @@ wk2003
 200119 last day for work, start to have a happy year
 wk2004-2005
 happy new year from 200124-200202
+
+Feb
 wk2006
 200203 monday work at home first day
 200204 tuesday work at home 
