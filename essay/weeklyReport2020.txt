@@ -35,5 +35,6 @@ wk2008
 200217 Mon work at home
 200218 Tue work at home + springboot stuff downloaded
 200219 Wed work at home
-200220 Thu wake up at 8:00 + work at home
+200220 Thu wake up at 8:00 + work at home + sklearn video in bilibili
+200221 Fri work at home
 
