@@ -37,4 +37,4 @@ wk2008
 200219 Wed work at home
 200220 Thu wake up at 8:00 + work at home + sklearn video in bilibili
 200221 Fri work at home
-
+200222 Sat work at home + springboot sts deploy
