@@ -38,3 +38,6 @@ wk2008
 200220 Thu wake up at 8:00 + work at home + sklearn video in bilibili
 200221 Fri work at home
 200222 Sat work at home + springboot sts deploy
+200223 Sun rest at home
+wk2009
+200224 Mon go back to quanzhou from juxi zhen of longyan
