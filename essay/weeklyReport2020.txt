@@ -41,3 +41,7 @@ wk2008
 200223 Sun rest at home
 wk2009
 200224 Mon go back to quanzhou from juxi zhen of longyan
+200225 Tue pc clean up resource
+200226 Wed learn jap mem
+200227 Thu deploy dev env laptop and tencent cloud
+200228
