@@ -6,6 +6,10 @@
   - cp
   - mv
   - ls
+  - cat
+  - less
+  - more
+  - tail
   - rm
   - rmdir
   - find
@@ -13,7 +17,7 @@
   - su
   - sudo
   - netstat 
-    - netstat -nplt 查看系统后台跑的程序
+    - netstat -nplt #查看系统后台跑的程序
 - 不常用
   - du
   - df
@@ -21,5 +25,13 @@
   - whereis
     - whereis 文件名
   - unzip
+  - tar
+  - nohup
+  - curl
+- 软件
+  - nginx
+    - nginx -t #测试配置文件是否正确
+    - nginx -s stop/reload
+    - nginx #启动
 
 ##### 2 Ubuntu特有

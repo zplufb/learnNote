@@ -188,8 +188,3 @@ nginx: [error] open() "/var/run/nginx.pid" failed (2: No such file or directory)
 [2.域名验证指引](https://cloud.tencent.com/document/product/400/4142#ManualVerification)
 
 [3.Nginx在Centos中的使用](https://blog.csdn.net/qq_34039018/article/details/90380284)
-
-
-```
-
-```
