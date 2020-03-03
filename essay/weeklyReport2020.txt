@@ -44,4 +44,9 @@ wk2009
 200225 Tue pc clean up resource
 200226 Wed learn jap mem
 200227 Thu deploy dev env laptop and tencent cloud
-200228
+200228 Fri
+200229 Sat depoly env for centos
+200230 Sun continue
+wk2010
+200302 Mon do sth on centos
+200303 Tue do sth of website deploy on centos
