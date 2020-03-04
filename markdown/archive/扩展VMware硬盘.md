@@ -27,31 +27,27 @@ sudo gparted
 
 删完分区后，会得到未分配空间
 
-![1583054405(1)](https://github.com/zplufb/learnNote/blob/master/markdown/archive/images\1583054405(1).jpg)
+![](https://img2020.cnblogs.com/blog/688865/202003/688865-20200304155937105-1175198623.jpg)
 
+![](https://img2020.cnblogs.com/blog/688865/202003/688865-20200304155842943-1237057595.png)
 
-
-![微信截图_20200301172102](https://github.com/zplufb/learnNote/blob/master/markdown/archive/images\微信截图_20200301172102.png)
 
 2. 6 扩展大小
 
 点击dev/sda1，右键Resize/Move，然后把新添加的未分配大小全部分给该区，建议给相邻的盘，这边是Others（I）盘
+![](https://img2020.cnblogs.com/blog/688865/202003/688865-20200304160132852-750256850.png)
 
-![微信截图_20200301172358](https://github.com/zplufb/learnNote/blob/master/markdown/archive/images\微信截图_20200301172358.png)
+![](https://img2020.cnblogs.com/blog/688865/202003/688865-20200304160205248-613902014.png)
 
-![微信截图_20200301172546](https://github.com/zplufb/learnNote/blob/master/markdown/archive/images\微信截图_20200301172546.png)
-
-![微信截图_20200301172631](https://github.com/zplufb/learnNote/blob/master/markdown/archive/images\微信截图_20200301172631.png)
+![](https://img2020.cnblogs.com/blog/688865/202003/688865-20200304160214366-1630950153.png)
 
 2.7 重新MBR（可选）
 
 2.7.1 建议先备份分区表
+![](https://img2020.cnblogs.com/blog/688865/202003/688865-20200304160247497-153426796.png)
 
-![微信截图_20200301172200](https://github.com/zplufb/learnNote/blob/master/markdown/archive/images\微信截图_20200301172200.png)
+![](https://img2020.cnblogs.com/blog/688865/202003/688865-20200304160228062-2132753113.png)
 
-![微信截图_20200301172220](https://github.com/zplufb/learnNote/blob/master/markdown/archive/images\微信截图_20200301172220.png)
-
-![微信截图_20200301173104](https://github.com/zplufb/learnNote/blob/master/markdown/archive/images\微信截图_20200301173104.png)
 
 2. 8 如果中间存在交换区
 
@@ -61,11 +57,9 @@ sudo gparted
 
 用魔方优化大师或者其他类似软件（建议先备份，后删除Ubunut启动项）
 
-![微信截图_20200301174528](https://github.com/zplufb/learnNote/blob/master/markdown/archive/images\微信截图_20200301174528.png)
+![](https://img2020.cnblogs.com/blog/688865/202003/688865-20200304160307729-768117261.png)
+
 
 #### 3 参考资料
 
-- [1]: https://blog.csdn.net/weixin_39510813/article/details/78387334	"Vm虚拟机扩展Ubuntu系统磁盘空间"
 - [Vm虚拟机扩展Ubuntu系统磁盘空间](https://blog.csdn.net/weixin_39510813/article/details/78387334)
-
-
