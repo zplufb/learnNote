@@ -1,4 +1,4 @@
-### Linux
+### Linux命令
 
 ##### 1 Common
 
@@ -33,5 +33,8 @@
     - nginx -t #测试配置文件是否正确
     - nginx -s stop/reload
     - nginx #启动
+  - vim
+    - i/a/o/O 插入/追加/下一行/上一行
+    - 
 
 ##### 2 Ubuntu特有
