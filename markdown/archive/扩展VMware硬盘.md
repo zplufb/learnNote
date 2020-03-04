@@ -27,31 +27,31 @@ sudo gparted
 
 删完分区后，会得到未分配空间
 
-![1583054405(1)](E:\work\learn\git\zplufb\learnNote\markdown\archive\images\1583054405(1).jpg)
+![1583054405(1)](https://github.com/zplufb/learnNote/tree/master/markdown/archive/images\1583054405(1).jpg)
 
 
 
-![微信截图_20200301172102](E:\work\learn\git\zplufb\learnNote\markdown\archive\images\微信截图_20200301172102.png)
+![微信截图_20200301172102](https://github.com/zplufb/learnNote/tree/master/markdown/archive/images\微信截图_20200301172102.png)
 
 2. 6 扩展大小
 
 点击dev/sda1，右键Resize/Move，然后把新添加的未分配大小全部分给该区，建议给相邻的盘，这边是Others（I）盘
 
-![微信截图_20200301172358](E:\work\learn\git\zplufb\learnNote\markdown\archive\images\微信截图_20200301172358.png)
+![微信截图_20200301172358](https://github.com/zplufb/learnNote/tree/master/markdown/archive/images\微信截图_20200301172358.png)
 
-![微信截图_20200301172546](E:\work\learn\git\zplufb\learnNote\markdown\archive\images\微信截图_20200301172546.png)
+![微信截图_20200301172546](https://github.com/zplufb/learnNote/tree/master/markdown/archive/images\微信截图_20200301172546.png)
 
-![微信截图_20200301172631](E:\work\learn\git\zplufb\learnNote\markdown\archive\images\微信截图_20200301172631.png)
+![微信截图_20200301172631](https://github.com/zplufb/learnNote/tree/master/markdown/archive/images\微信截图_20200301172631.png)
 
 2.7 重新MBR（可选）
 
 2.7.1 建议先备份分区表
 
-![微信截图_20200301172200](E:\work\learn\git\zplufb\learnNote\markdown\archive\images\微信截图_20200301172200.png)
+![微信截图_20200301172200](https://github.com/zplufb/learnNote/tree/master/markdown/archive/images\微信截图_20200301172200.png)
 
-![微信截图_20200301172220](E:\work\learn\git\zplufb\learnNote\markdown\archive\images\微信截图_20200301172220.png)
+![微信截图_20200301172220](https://github.com/zplufb/learnNote/tree/master/markdown/archive/images\微信截图_20200301172220.png)
 
-![微信截图_20200301173104](E:\work\learn\git\zplufb\learnNote\markdown\archive\images\微信截图_20200301173104.png)
+![微信截图_20200301173104](https://github.com/zplufb/learnNote/tree/master/markdown/archive/images\微信截图_20200301173104.png)
 
 2. 8 如果中间存在交换区
 
@@ -61,7 +61,7 @@ sudo gparted
 
 用魔方优化大师或者其他类似软件（建议先备份，后删除Ubunut启动项）
 
-![微信截图_20200301174528](E:\work\learn\git\zplufb\learnNote\markdown\archive\images\微信截图_20200301174528.png)
+![微信截图_20200301174528](https://github.com/zplufb/learnNote/tree/master/markdown/archive/images\微信截图_20200301174528.png)
 
 #### 3 参考资料
 
