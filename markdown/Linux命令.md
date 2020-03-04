@@ -20,6 +20,8 @@
     - netstat -nplt #查看系统后台跑的程序
   - chmod #修改权限
   - nohup
+  - systemctl
+  - service
 - 不常用
   - du
   - df
