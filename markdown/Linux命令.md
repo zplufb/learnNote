@@ -21,6 +21,11 @@
   - chmod #修改权限
   - nohup
   - systemctl
+    - systemctl start #启动服务
+    - systemctl enable #设置开机启动
+    - systemctl stop #关闭服务
+    - systemctl Status #查看服务状态
+    - systemctl daemon-reload #重载daemon，让新的服务文件生效
   - service
 - 不常用
   - du
@@ -49,6 +54,8 @@
     - x #删除单个字符
     - dd #删除一行
     - hjkl #左下上右
+  - gitea
+    - 配置说明：https://docs.gitea.io/zh-cn/config-cheat-sheet/
 
 ##### 2 Ubuntu特有
 
@@ -59,3 +66,6 @@
 ##### 3 Centos
 
 - yum
+  - yum install git #安装git
+  - yum remove git #卸载git
+- 

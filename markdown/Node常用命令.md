@@ -17,3 +17,4 @@
 - hexo s 启动服务
 - hexo d 部署
 - hexo g 生成
+- hexo new post "title" 

@@ -1,10 +1,8 @@
 # Centos7的Nginx配置
 
-## 1 语法规则
+## 1 Centos7上Nginx配置
 
-## 2 Centos7上Nginx配置
-
-### 2.1 nginx位置
+### 1.1 nginx位置
 
 通过whereis 命令查询可得
 
@@ -22,11 +20,11 @@ nginx: /usr/bin/nginx /usr/sbin/nginx /usr/lib64/nginx /etc/nginx /usr/share/ngi
 - usr/share/nginx是默认读取位置，若没其它配置，则读取其下面的index.html文件
 - 具体配置和宝塔Linux面板上Nginx配置是一样的
 
-## 3 宝塔Linux面板上Nginx配置 
+## 2 宝塔Linux面板上Nginx配置 
 
-### 3.1 server
+### 2.1 server
 
-#### 3.1.1 HTTP
+#### 2.1.1 HTTP
 
 ```
    listen 80;
@@ -50,7 +48,7 @@ nginx: /usr/bin/nginx /usr/sbin/nginx /usr/lib64/nginx /etc/nginx /usr/share/ngi
     access_log  /www/wwwlogs/unionline.top.log;
     error_log  /www/wwwlogs/unionline.top.error.log;
 ```
-#### 3.1.2 HTTPS
+#### 2.1.2 HTTPS
 
   ```
   # HTTPS server
@@ -116,7 +114,7 @@ nginx: /usr/bin/nginx /usr/sbin/nginx /usr/lib64/nginx /etc/nginx /usr/share/ngi
   
   ```
 
-####   3.3.3 重定向
+####   2.1.3 重定向
 
 ```
   {
@@ -136,7 +134,7 @@ nginx: /usr/bin/nginx /usr/sbin/nginx /usr/lib64/nginx /etc/nginx /usr/share/ngi
     }
 ```
 
-#### 3.3.4 http跳转https
+#### 2.1.4 http跳转https
 
 ```
 server
@@ -178,9 +176,9 @@ location ~ [^/]\.php(/|$)
 
 1. 项目路径无index.html index.php等等文件
 2. 项目js/css等路径不正确
-3. 权限不够
+3. 权限不够 (nginx failed (13: Permission denied))
    - /www/server/nginx/conf/nginx.conf 中user拥有者和组别分别是www www，而项目是root或者fanbi的拥有着，改成user root root即可
-   - 通过宝塔面包新建的项目默认用户是www，组别是www
+   - 通过宝塔面板新建的项目默认用户是www，组别是www
 
 ## 5 参考
 
