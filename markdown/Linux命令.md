@@ -95,6 +95,8 @@
 
 ##### 1.4 不常用
 
+- which #查看可执行文件位置
+
 - alias
 - du
 - df
@@ -139,3 +141,7 @@
 - yum
   - yum install git #安装git
   - yum remove git #卸载git
+
+#### 4 资料
+
+- https://www.cnblogs.com/yuncong/p/10247583.html
