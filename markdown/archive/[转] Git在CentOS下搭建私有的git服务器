@@ -131,7 +131,7 @@ git:x:1000:1000::/home/git:/usr/bin/git-shell
   在gitbash下，输入以下命令（ip地址换成你git服务器的地址）
 
   ```bash
-   ssh git@172.168.162.40 'cat >> .ssh/authorized_keys' < ~/.ssh/id_rsa.pub
+   ssh git@172.16.100.123 'cat >> .ssh/authorized_keys' < ~/.ssh/id_rsa.pub
   ```
 
 - 手动将公钥添加到服务器中
@@ -152,7 +152,7 @@ git:x:1000:1000::/home/git:/usr/bin/git-shell
 
   ```bash
   //端口在22的情况下
-  git clone git@172.16.162.40:/home/git/LearnProject.git
+  git clone git@172.16.100.123:/home/git/LearnProject.git
   ```
 
 至此，我们就完成了远程仓库的克隆。
